@@ -96,6 +96,44 @@ sudo apt install parallel
 - Set `end-ride/GCP_CREDENTIALS_FILE_NAME` under to filename of a JSON service account file.
 - Set `token-txn/ethNodeUrl` to your eth wallet address.
 
+- Open `.../mooving/mooving-api/k8s/environments/local/params.libsonnet`
+- Set `GCP_PROJECT` under `owner-deployment`, `rider-deployment` and `dav-rate-update-job` to your GCP project id.
+- Set `MAILGUN_DOMAIN` under `owner-deployment` and `rider-deployment` to your MAILGUN domain.
+- Under `rider-deployment` set `BLUE_SNAP_USER_NAME`,`BLUE_SNAP_USER_NAME_TEST_USER` to BlueSnap credentials
+- Under `rider-deployment` set `IOS_APP_ID` to your iOS app id.
+- Under `rider-deployment` set `GCP_CREDENTIALS_FILE_NAME` to the name of the service account file.
+- Under `rider-deployment` set `INVOICES_BUCKET_NAME` to a GCS Bucket name.
+- Set `hostName` under `rider-ingress`,`owner-ingress` and `get-dav-city-ingress` to your hostnames.
+
+- Open `.../mooving/mooving-api/k8s/vendor/nginx/nginx.conf`
+- Replace `*.dav.city` with your host.
+
+- Open `.../mooving/mooving-api/k8s/Makefile`
+- Set `<GCP_PROJECT>` to your GCP project id.
+
+- Open `.../mooving/mooving-api/src/common/controllers/AccountController.test.ts`
+- Set `TEST_USER_PHONE` to some phone number.
+- Set `TEST_USER_COUNTRY_CODE` to some phone country code.
+
+- Open `.../mooving/mooving-api/src/common/controllers/AccountController.ts`
+- Set `TEST_USER_PHONE_NUMBER` to some phone number.
+- Set `TEST_USER_COUNTRY_CODE` to some phone country code.
+
+- Open `/data/shahar/code/mooving/mooving-api/src/owner/TestUserApi.test.ts`
+- Set `TEST_USER_PHONE_NUMBER` to some phone number.
+- Set `REGULAR_USER_PHONE_NUMBER` to some phone number.
+
+- Open `.../mooving/mooving-api/src/rider/controllers/AccountController.ts`
+- Set `GCS_BUCKET` to your GCS bucket.
+
+- Open `.../mooving/mooving-api/src/rider/controllers/DeeplinksController.ts`
+- Set `<IOS_APP_ID>` to your ios app id.
+- Set `<HOSTNAME>` to your hostname
+- Set `<ITUNES_URL>` to your itunes url
+
+- Open `.../mooving/mooving-api/local-env.sh`
+- Set `TWILIO_API_KEY`, `BLUE_SNAP_USER_NAME`, `BLUE_SNAP_PASSWORD`, `BLUE_SNAP_USER_NAME_TEST_USER` and `BLUE_SNAP_PASSWORD_TEST_USER`
+
 ## How to run locally
 
 ### Setup

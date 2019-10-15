@@ -15,9 +15,6 @@
         {
             "name": "app",
             "path": "../mooving-app"
-        },
-        {
-            "path": "../internal-mooving"
         }
     ],
     "settings": {
