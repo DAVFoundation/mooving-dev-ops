@@ -1,0 +1,34 @@
+local env = std.extVar('__ksonnet/environments');
+local params = std.extVar('__ksonnet/params').components['jobmanager-service'];
+{
+  apiVersion: 'v1',
+  kind: 'Service',
+  metadata: {
+    name: 'flink-jobmanager',
+    namespace: 'flink',
+  },
+  spec: {
+    ports: [
+      {
+        name: 'rpc',
+        port: 6123,
+      },
+      {
+        name: 'blob',
+        port: 6124,
+      },
+      {
+        name: 'query',
+        port: 6125,
+      },
+      {
+        name: 'ui',
+        port: 8081,
+      },
+    ],
+    selector: {
+      app: 'flink',
+      component: 'jobmanager',
+    },
+  },
+}

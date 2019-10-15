@@ -1,0 +1,39 @@
+{
+    "folders": [
+        {
+            "name": "dev-ops",
+            "path": "."
+        },
+        {
+            "name": "flow",
+            "path": "../mooving-flow"
+        },
+        {
+            "name": "api",
+            "path": "../mooving-api"
+        },
+        {
+            "name": "app",
+            "path": "../mooving-app"
+        },
+        {
+            "path": "../internal-mooving"
+        }
+    ],
+    "settings": {
+        "java.configuration.updateBuildConfiguration": "automatic",
+        "cassandraWorkbench.activeClusterName": "Local",
+        "cassandraWorkbench.activeKeyspace": [
+            [
+                "Local",
+                "vehicle_rider"
+            ]
+        ],
+        "cassandraWorkbench.splitPosition": 72.9150584289403,
+        "cSpell.words": [
+            "datetime",
+            "unitnumber"
+        ],
+        "git.ignoreLimitWarning": true,
+    }
+}

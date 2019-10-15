@@ -1,0 +1,210 @@
+{
+  "conditions": [
+    {
+      "name": "il",
+      "expression": "device.country in ['IL']",
+      "tagColor": "TEAL"
+    },
+    {
+      "name": "nl",
+      "expression": "device.country in ['NL']",
+      "tagColor": "PINK"
+    },
+    {
+      "name": "countryCode",
+      "expression": "device.country in ['IL']",
+      "tagColor": "BROWN"
+    },
+    {
+      "name": "ch",
+      "expression": "device.country in ['SZ']",
+      "tagColor": "PURPLE"
+    },
+    {
+      "name": "it",
+      "expression": "device.country in ['IT']",
+      "tagColor": "INDIGO"
+    },
+    {
+      "name": "au",
+      "expression": "device.country in ['AU']",
+      "tagColor": "INDIGO"
+    },
+    {
+      "name": "ph",
+      "expression": "device.country in ['PH']"
+    },
+    {
+      "name": "be",
+      "expression": "device.country in ['BE']",
+      "tagColor": "ORANGE"
+    },
+    {
+      "name": "ca",
+      "expression": "device.country in ['CA']",
+      "tagColor": "GREEN"
+    },
+    {
+      "name": "nz",
+      "expression": "device.country in ['NZ']",
+      "tagColor": "GREEN"
+    },
+    {
+      "name": "lt",
+      "expression": "device.country in ['LT']",
+      "tagColor": "INDIGO"
+    },
+    {
+      "name": "br",
+      "expression": "device.country in ['BR']",
+      "tagColor": "LIME"
+    },
+    {
+      "name": "cn",
+      "expression": "device.country in ['CN']",
+      "tagColor": "LIME"
+    },
+    {
+      "name": "tr",
+      "expression": "device.country in ['TR']",
+      "tagColor": "PURPLE"
+    },
+    {
+      "name": "gr",
+      "expression": "device.country in ['GR']",
+      "tagColor": "ORANGE"
+    },
+    {
+      "name": "de",
+      "expression": "device.country in ['DE']",
+      "tagColor": "TEAL"
+    },
+    {
+      "name": "dk",
+      "expression": "device.country in ['DK']",
+      "tagColor": "ORANGE"
+    },
+    {
+      "name": "es",
+      "expression": "device.country in ['ES']",
+      "tagColor": "BLUE"
+    },
+    {
+      "name": "at",
+      "expression": "device.country in ['AT']",
+      "tagColor": "ORANGE"
+    },
+    {
+      "name": "gb",
+      "expression": "device.country in ['GB']",
+      "tagColor": "TEAL"
+    },
+    {
+      "name": "pl",
+      "expression": "device.country in ['PL']",
+      "tagColor": "PURPLE"
+    },
+    {
+      "name": "ro",
+      "expression": "device.country in ['RO']",
+      "tagColor": "INDIGO"
+    },
+    {
+      "name": "hu",
+      "expression": "device.country in ['HU']",
+      "tagColor": "CYAN"
+    },
+    {
+      "name": "ru",
+      "expression": "device.country in ['RU']",
+      "tagColor": "LIME"
+    }
+  ],
+  "parameters": {
+    "countryCode": {
+      "defaultValue": {
+        "value": "us"
+      },
+      "conditionalValues": {
+        "il": {
+          "value": "il"
+        },
+        "nl": {
+          "value": "nl"
+        },
+        "ch": {
+          "value": "ch"
+        },
+        "it": {
+          "value": "it"
+        },
+        "au": {
+          "value": "au"
+        },
+        "ph": {
+          "value": "ph"
+        },
+        "be": {
+          "value": "be"
+        },
+        "ca": {
+          "value": "ca"
+        },
+        "nz": {
+          "value": "nz"
+        },
+        "lt": {
+          "value": "lt"
+        },
+        "br": {
+          "value": "br"
+        },
+        "cn": {
+          "value": "cn"
+        },
+        "tr": {
+          "value": "tr"
+        },
+        "gr": {
+          "value": "gr"
+        },
+        "de": {
+          "value": "de"
+        },
+        "dk": {
+          "value": "dk"
+        },
+        "es": {
+          "value": "es"
+        },
+        "at": {
+          "value": "at"
+        },
+        "gb": {
+          "value": "gb"
+        },
+        "pl": {
+          "value": "pl"
+        },
+        "ro": {
+          "value": "ro"
+        },
+        "hu": {
+          "value": "hu"
+        },
+        "ru": {
+          "value": "ru"
+        }
+      }
+    }
+  },
+  "version": {
+    "versionNumber": "15",
+    "updateTime": "2019-01-31T14:54:03.315Z",
+    "updateUser": {
+      "email": "<<firebase-adminsdk-...@...iam.gserviceaccount.com>>"
+    },
+    "updateOrigin": "REST_API",
+    "updateType": "FORCED_UPDATE"
+  }
+}
