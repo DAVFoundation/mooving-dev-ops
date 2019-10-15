@@ -86,8 +86,15 @@ sudo apt install parallel
 
 ## Initial Secrets Setup
 
-- Open `/data/shahar/code/mooving/mooving-dev-ops/firebase/config.json`
+- Open `.../mooving/mooving-dev-ops/firebase/config.json`
 - Set `version.updateUser.email` to the id of an admin firebase service account (e.g. `firebase-adminsdk-...@...iam.gserviceaccount.com`)
+
+- Open `.../mooving/mooving-flow/k8s/environments/local/params.libsonnet`
+- Set `GCP_PROJECT` to your GCP project id
+- Set `GCP_BUCKET_PATH` to a a GCS bucket path
+- Set `end-ride/gcsBucket` to a a GCS bucket path for invoices
+- Set `end-ride/GCP_CREDENTIALS_FILE_NAME` under to filename of a JSON service account file.
+- Set `token-txn/ethNodeUrl` to your eth wallet address.
 
 ## How to run locally
 
