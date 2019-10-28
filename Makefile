@@ -39,3 +39,35 @@ deploy: use-local
 	pushd cassandra/schema/vehicle_rider && cqlsh -f generate_test_user.cql && popd
 	sleep 2
 	cat /tmp/id | xargs kill
+
+secrets-setup: FORCE
+	-kubectl create namespace flink
+	-kubectl create namespace mooving
+	-kubectl create namespace flows
+
+	-kubectl -n flows create secret generic dav-rate-update-job \
+		--from-literal=CMC_API_KEY=<<YOUR_CMC_API_KEY>>
+
+	-kubectl -n flows create secret generic timezone \
+		--from-literal=TIMEZONE_API_KEY=<<YOUR_TIMEZONE_API_KEY>>
+
+	-kubectl -n flows create secret generic vehicle-controller --from-literal=VEHICLE_CONTROLLER_USER_NAME=<<YOUR_VEHICLE_CONTROLLER_USER_NAME>> \
+		--from-literal=VEHICLE_CONTROLLER_PASSWORD=<<YOUR_VEHICLE_CONTROLLER_PASSWORD>>
+
+	-kubectl -n flows create secret generic payment-service --from-literal=bluesnap_api_user=<<YOUR_BLUESNAP_API_USER>> \
+		--from-literal=bluesnap_api_pass=<<YOUR_BLUESNAP_API_PASS>>
+
+	-kubectl -n mooving create secret generic api-rider \
+		--from-literal=TWILIO_API_KEY=<<YOUR_TWILIO_API_KEY>> \
+		--from-literal=MAILGUN_API_KEY=<<YOUR_MAILGUN_API_KEY>> \
+		--from-literal=JWT_SEED=<<YOUR_JWT_SEED>> \
+		--from-literal=BLUE_SNAP_PASSWORD=<<YOUR_BLUE_SNAP_PASSWORD>> \
+		--from-literal=BLUE_SNAP_PASSWORD_TEST_USER=<<YOUR_BLUE_SNAP_PASSWORD_TEST_USER>>
+
+	-kubectl -n mooving create secret generic api-owner \
+		--from-literal=TWILIO_API_KEY=<<YOUR_TWILIO_API_KEY>> \
+		--from-literal=MAILGUN_API_KEY=<<YOUR_MAILGUN_API_KEY>> \
+		--from-literal=JWT_SEED=<<YOUR_JWT_SEED>>
+
+	-kubectl -n mooving create secret generic vehicle-controller --from-literal=VEHICLE_CONTROLLER_USER_NAME=<<YOUR_VEHICLE_CONTROLLER_USER_NAME>> \
+		--from-literal=VEHICLE_CONTROLLER_PASSWORD=<<YOUR_VEHICLE_CONTROLLER_PASSWORD>>

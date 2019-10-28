@@ -166,7 +166,15 @@ minikube addons enable ingress
 
 #### dev-ops
 
+Edit `./Makefile` and replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
+
 cd to `dev-ops` folder and run:
+
+```bash
+make secrets-setup
+```
+
+And then run:
 
 ```bash
 make deploy
@@ -204,8 +212,16 @@ kubectl port-forward -n mooving svc/api-owner 3005:80
 
 ##### Run locally
 
+Run the following in a terminal. Be sure to replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
+
 ```bash
 export TWILIO_API_KEY='<<YOUR_TWILIO_API_KEY>>'
+export BLUE_SNAP_API='<<YOUR_BLUE_SNAP_API>>'
+export BLUE_SNAP_USER_NAME='<<YOUR_BLUE_SNAP_USER_NAME>>'
+export BLUE_SNAP_PASSWORD='<<YOUR_BLUE_SNAP_PASSWORD>>'
+export BLUE_SNAP_API_TEST_USER='<<YOUR_BLUE_SNAP_API_TEST_USER>>'
+export BLUE_SNAP_USER_NAME_TEST_USER='<<YOUR_BLUE_SNAP_USER_NAME_TEST_USER>>'
+export BLUE_SNAP_PASSWORD_TEST_USER='<<YOUR_BLUE_SNAP_PASSWORD_TEST_USER>>'
 export SDK_DEBUG_LOG=true
 ```
 
