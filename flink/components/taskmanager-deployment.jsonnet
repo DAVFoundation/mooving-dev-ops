@@ -2,7 +2,7 @@ local env = std.extVar('__ksonnet/environments');
 local params = std.extVar('__ksonnet/params').components['taskmanager-deployment'];
 local version = std.extVar('IMAGE_VERSION');
 {
-  apiVersion: 'extensions/v1beta1',
+  apiVersion: 'apps/v1',
   kind: 'Deployment',
   metadata: {
     name: 'flink-taskmanager',
@@ -10,6 +10,12 @@ local version = std.extVar('IMAGE_VERSION');
   },
   spec: {
     replicas: params.replicas,
+    selector: {
+      matchLabels: {
+        app: 'flink',
+        component: 'taskmanager',
+      },
+    },
     template: {
       metadata: {
         labels: {
@@ -49,13 +55,6 @@ local version = std.extVar('IMAGE_VERSION');
                 memory: params.requests.memory,
               },
             },
-            volumeMounts: [
-              {
-                name: 'gcp-credentials-volume',
-                mountPath: '/gcp-credentials',
-                readOnly: true,
-              },
-            ],
             env: [
               {
                 name: 'JOB_MANAGER_RPC_ADDRESS',
@@ -66,14 +65,6 @@ local version = std.extVar('IMAGE_VERSION');
                 value: '/gcp-credentials/' + params.GCP_CREDENTIALS_FILE_NAME,
               },
             ],
-          },
-        ],
-        volumes: [
-          {
-            name: 'gcp-credentials-volume',
-            secret: {
-              secretName: 'gcp-credentials',
-            },
           },
         ],
       },

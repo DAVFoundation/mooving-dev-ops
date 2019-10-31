@@ -60,13 +60,6 @@ local version = std.extVar('IMAGE_VERSION');
                 memory: params.requests.memory,
               },
             },
-            volumeMounts: [
-              {
-                name: 'gcp-credentials-volume',
-                mountPath: '/gcp-credentials',
-                readOnly: true,
-              },
-            ],
             env: [
               {
                 name: 'JOB_MANAGER_RPC_ADDRESS',
@@ -77,14 +70,6 @@ local version = std.extVar('IMAGE_VERSION');
                 value: '/gcp-credentials/' + params.GCP_CREDENTIALS_FILE_NAME,
               },
             ],
-          },
-        ],
-        volumes: [
-          {
-            name: 'gcp-credentials-volume',
-            secret: {
-              secretName: 'gcp-credentials',
-            },
           },
         ],
       },

@@ -182,20 +182,26 @@ make deploy
 
 #### Flows
 
+Edit `k8s/environments/local/params.libsonnet` and replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
+Edit `Makefile` and replace <<GCP_PROJECT_ID>> with your project id.
+
 cd to `flows` folder and run:
 
 ```bash
-make local-deploy
+make deploy
 ```
 
 #### API
 
 ##### Run in K8S
 
+Edit `k8s/environments/local/params.libsonnet` and replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
+Edit `k8s/Makefile` and replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
+
 cd to `api` folder and run:
 
 ```bash
-make local-deploy
+make deploy
 ```
 
 Use either:
@@ -212,18 +218,7 @@ kubectl port-forward -n mooving svc/api-owner 3005:80
 
 ##### Run locally
 
-Run the following in a terminal. Be sure to replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
-
-```bash
-export TWILIO_API_KEY='<<YOUR_TWILIO_API_KEY>>'
-export BLUE_SNAP_API='<<YOUR_BLUE_SNAP_API>>'
-export BLUE_SNAP_USER_NAME='<<YOUR_BLUE_SNAP_USER_NAME>>'
-export BLUE_SNAP_PASSWORD='<<YOUR_BLUE_SNAP_PASSWORD>>'
-export BLUE_SNAP_API_TEST_USER='<<YOUR_BLUE_SNAP_API_TEST_USER>>'
-export BLUE_SNAP_USER_NAME_TEST_USER='<<YOUR_BLUE_SNAP_USER_NAME_TEST_USER>>'
-export BLUE_SNAP_PASSWORD_TEST_USER='<<YOUR_BLUE_SNAP_PASSWORD_TEST_USER>>'
-export SDK_DEBUG_LOG=true
-```
+Edit `local-env.sh` and replace secret values with real values (e.g. <<YOUR_CMC_API_KEY>>)
 
 cd to `dev-ops` folder and run:
 
@@ -233,7 +228,13 @@ make proxy-all
 
 Note: **DO NOT CLOSE THE PROXY TERMINAL**
 
-cd to `api` folder and run either:
+cd to `api` folder and run:
+
+```bash
+npm i
+```
+
+Then run either:
 
 ```bash
 make start-rider

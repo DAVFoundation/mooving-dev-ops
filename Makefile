@@ -2,19 +2,18 @@ SHELL := /bin/bash
 
 FORCE:
 
-proxy-all:
+proxy-all: FORCE
 	parallel ::: \
 		"kubectl proxy" \
 		"kubectl port-forward -n kafka statefulset/zoo 2181:2181" \
 		"kubectl port-forward -n cassandra statefulset/cassandra 9042:9042" \
 		"kubectl port-forward -n flink svc/flink-jobmanager 8082:8081" \
-		"kubectl port-forward svc/node-red 1880:1880" \
 		"kubectl -n kafka port-forward pod/kafka-0 9092:9094 32400:9092" \
 		"kubectl -n kafka port-forward pod/kafka-1 32401:9092" \
 		"kubectl -n kafka port-forward pod/kafka-2 32402:9092"
 
 deploy: TIMESTAMP=$(shell date +%y%m%d-%H%M -u)
-deploy: use-local
+deploy: FORCE
 	eval "$$(minikube docker-env)" &&\
 		docker build flink -f flink/Dockerfile -t flink:$(TIMESTAMP)
 
