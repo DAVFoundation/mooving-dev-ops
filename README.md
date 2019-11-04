@@ -1,89 +1,5 @@
 # mooving-dev-ops
 
-## K8S
-
-Support for local/dev env and gcp/prod env.
-
-### Ksonnet
-
-**For Ubuntu (or other Debian based distros)**
-Install:
-
-```bash
-cd ksonnet
-make install
-```
-
-**For other systems**
-
-Install [ksonnet](https://ksonnet.io/)
-
-### Local/DEV
-
-#### Install
-
-**For Ubuntu (or other Debian based distros)**
-
-Install minikube + dependencies using:
-
-```bash
-cd k8s/local
-make install
-```
-
-Start minikube using:
-
-```bash
-make local-start
-```
-
-**For other systems**
-
-Install [minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/) using instructions.
-
-#### Dashboard
-
-Open minikube dashboard:
-
-```bash
-make local-start
-```
-
-Open dashboard using:
-
-```bash
-make local-dashboard
-```
-
-### GCP/PROD
-
-#### Install
-
-**For Ubuntu (or other Debian based distros)**
-
-```bash
-cd k8s/gcp
-make install
-```
-
-**For other systems**
-
-Install [Google Cloud SDK](https://cloud.google.com/sdk/) and
-[kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl).
-
-## Install Parallel (only when contributing code)
-
-Ubuntu/Debian
-
-```bash
-sudo apt install parallel
-```
-
-## Flink
-
-1. Install [Java 8](https://openjdk.java.net/install/)
-1. Install [SBT](https://www.scala-sbt.org/) (Ubuntu users can run `make install` in the `flink` folder)
-
 ## Initial Secrets Setup
 
 - Open `.../mooving/mooving-dev-ops/firebase/config.json`
@@ -138,8 +54,26 @@ sudo apt install parallel
 
 ### Setup
 
+[Docker Install](https://docs.docker.com/install/linux/docker-ce/ubuntu/#install-docker-engine---community)
+
+```bash
+cd ksonnet
+make install
+```
+
+```bash
+sudo apt install parallel
+```
+
+Then:
+
+```bash
+sudo apt install python-pip
+pip install cqlsh
+```
+
+- Install [KVM](https://linuxconfig.org/install-and-set-up-kvm-on-ubuntu-18-04-bionic-beaver-linux)
 - Install [`minikube`](https://kubernetes.io/docs/tasks/tools/install-minikube/)
-- Install the rest of the toolchain
 - Save this into `~/.minikube/config/config.json`:
 
 ```json
@@ -155,13 +89,21 @@ sudo apt install parallel
 }
 ```
 
+- Edit `~/.cassandra/cqlshrc` with the following content:
+
+```
+[cql]
+version=3.4.4
+```
+
+Setup [NodeJS](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions-enterprise-linux-fedora-and-snap-packages)
+
 ### Start
 
 Run:
 
 ```bash
 minikube start
-minikube addons enable ingress
 ```
 
 #### dev-ops
