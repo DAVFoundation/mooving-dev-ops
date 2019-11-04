@@ -2,7 +2,6 @@
   "name": "k8s",
   "version": "1.0.0",
   "description": "",
-  "license": "MIT",
   "author": "",
   "main": "getVersion.js",
   "directories": {},
